@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<project name="neuro.net" default="build">
+  <description>Build for Neuro.Net.</description>
+  <property name="debug" value="true" overwrite="false" />
+
+  <target name="clean" description="remove all generated files">
+    <delete file="neuro.net.dll" failonerror="false" />
+  </target>
+
+  <target name="build" description="compiles the source code">
+    <echo message="Build Directory is ${build.dir}" />
+    <mkdir dir="${build.dir}" />
+    <copy todir="${build.dir}" flatten="true">
+      <fileset basedir="${project::get-base-directory()}">
+      </fileset>
+    </copy>
+    
+    <copy todir="${build.dir}">
+      <fileset basedir=".">
+      </fileset>
+    </copy>
+
+    <csc target="library" debug="${build.debug}" unsafe="True" warnaserror="False" define="TRACE" nostdlib="False" main="" output="${build.dir}/${project::get-name()}.dll">
+      <sources>
+        <include name="basesocket.cs" />
+        <include name="connectioneventargs.cs" />
+        <include name="dataeventargs.cs" />
+        <include name="messageeventargs.cs" />
+        <include name="socketserver.cs" />
+        <include name="netbase.cs" />
+      </sources>
+    </csc>
+  </target>
+</project>
