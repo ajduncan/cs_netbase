@@ -1,15 +1,14 @@
+# cs_netbase #
+
 A base network framework for future applications with a simple nant build configuration.  This project was 
 created more as a reference for future work than anything particularly productive.  Attribution for some pieces
 of code may be missing or taken from books, etc.
 
-To run:
+## Running ##
 
-nant
-cd bin
-mono netbase.exe
+    $ nant
+    $ cd bin
+    $ mono netbase.exe
 
-Then:
-
-telnet localhost 8888
-<echo chats>
-
+    $ telnet localhost 8888
+    <echo chats>
